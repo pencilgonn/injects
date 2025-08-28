@@ -70,6 +70,10 @@
           color: #640D5F;
           border-bottom: 1px solid #640D5F;
         }
+        .gift-header-close {
+          display: flex;
+          cursor: pointer;
+        }
         #gift-window-container.include-gift .gift-header {
           opacity: 0;
         }
@@ -114,6 +118,9 @@
           <div class="gift-header-title">
             <i class="fas fa-image"></i>
             <span>GIFT</span>
+          </div>
+          <div class="gift-header-close">
+            <i class="fas fa-close"></i>
           </div>
         </div>
         <div class="gift-content">
@@ -160,6 +167,11 @@
     }
 
     const uploadBtn = container.querySelector("#uploadBtn");
+    const closeBtn = container.querySelector(".gift-header-close");
+
+    closeBtn.addEventListener("click", () => {
+      document.body.removeChild(container);
+    });
 
     uploadBtn.addEventListener("click", async () => {
       const imageSrc = await Utils.createImageUploader();
